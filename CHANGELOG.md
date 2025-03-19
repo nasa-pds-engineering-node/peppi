@@ -1,28 +1,32 @@
 # Changelog
 
-## [release/6.6.6](https://github.com/nasa-pds-engineering-node/peppi/tree/release/6.6.6) (2025-03-19)
+## [release/6.8.0](https://github.com/nasa-pds-engineering-node/peppi/tree/release/6.8.0) (2025-03-19)
 
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.5...release/6.6.6)
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.6...release/6.8.0)
 
-## [v6.6.5](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.5) (2025-03-19)
+## [v6.6.6](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.6) (2025-03-19)
 
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.4...v6.6.5)
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.4...v6.6.6)
 
 ## [v6.6.4](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.4) (2025-03-19)
 
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/release/6.6.4...v6.6.4)
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.5...v6.6.4)
+
+## [v6.6.5](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.5) (2025-03-19)
+
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/release/6.6.4...v6.6.5)
 
 ## [release/6.6.4](https://github.com/nasa-pds-engineering-node/peppi/tree/release/6.6.4) (2025-03-19)
 
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.1...release/6.6.4)
-
-## [v6.6.1](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.1) (2025-03-19)
-
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.2...v6.6.1)
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.2...release/6.6.4)
 
 ## [v6.6.2](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.2) (2025-03-19)
 
-[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.5.4...v6.6.2)
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.6.1...v6.6.2)
+
+## [v6.6.1](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.6.1) (2025-03-19)
+
+[Full Changelog](https://github.com/nasa-pds-engineering-node/peppi/compare/v6.5.4...v6.6.1)
 
 ## [v6.5.4](https://github.com/nasa-pds-engineering-node/peppi/tree/v6.5.4) (2025-03-12)
 
