@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pds.peppi.client &mdash; Peppi  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=0c24fe83" />
 
@@ -77,10 +77,10 @@
              
   <h1>Source code for pds.peppi.client</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;PDS Registry Client related classes.&quot;&quot;&quot;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pds.api_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">ApiClient</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pds.api_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Configuration</span>
+<span class="kn">from</span> <span class="nn">pds.api_client</span> <span class="kn">import</span> <span class="n">ApiClient</span>
+<span class="kn">from</span> <span class="nn">pds.api_client</span> <span class="kn">import</span> <span class="n">Configuration</span>
 
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -91,7 +91,7 @@
 
 <div class="viewcode-block" id="PDSRegistryClient">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.client.PDSRegistryClient">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">PDSRegistryClient</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">PDSRegistryClient</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Used to connect and interface with the PDS Registry.</span>
 
 <span class="sd">    Attributes</span>
@@ -103,7 +103,7 @@
 
 <div class="viewcode-block" id="PDSRegistryClient.__init__">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.client.PDSRegistryClient.__init__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="n">_DEFAULT_API_BASE_URL</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="n">_DEFAULT_API_BASE_URL</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a new instance of PDSRegistryClient.</span>
 
 <span class="sd">        Parameters</span>

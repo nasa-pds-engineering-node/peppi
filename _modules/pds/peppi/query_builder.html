@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pds.peppi.query_builder &mdash; Peppi  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=0c24fe83" />
 
@@ -80,17 +80,17 @@
 
 <span class="sd">Contains all the methods use to elaborate the PDS4 Information Model queries through the PDS Search API.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDSRegistryClient</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.result_set</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResultSet</span>
+<span class="kn">from</span> <span class="nn">.client</span> <span class="kn">import</span> <span class="n">PDSRegistryClient</span>
+<span class="kn">from</span> <span class="nn">.result_set</span> <span class="kn">import</span> <span class="n">ResultSet</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -100,12 +100,12 @@
 
 <div class="viewcode-block" id="QueryBuilder">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">QueryBuilder</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">QueryBuilder</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;QueryBuilder provides method to elaborate complex PDS queries.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="QueryBuilder.__init__">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.__init__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">PDSRegistryClient</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">PDSRegistryClient</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a new instance of the QueryBuilder class.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_q_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -115,14 +115,14 @@
 
 <div class="viewcode-block" id="QueryBuilder.__str__">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.__str__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a formatted string representation of the current query.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  and&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_q_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;and&quot;</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="QueryBuilder.__iter__">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.__iter__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterates over all products returned by the current query filter applied to this Products instance.</span>
 
 <span class="sd">        This method handles pagination automatically by fetching additional pages</span>
@@ -151,7 +151,7 @@
                 <span class="k">break</span></div>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_add_clause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clause</span><span class="p">,</span> <span class="n">logical_join</span><span class="o">=</span><span class="s2">&quot;and&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_add_clause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clause</span><span class="p">,</span> <span class="n">logical_join</span><span class="o">=</span><span class="s2">&quot;and&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds the provided clause to the query string to use on the next fetch of products from the Registry API.</span>
 
 <span class="sd">        Repeated calls to this method results in a joining with any previously</span>
@@ -211,7 +211,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_q_string</span> <span class="o">=</span> <span class="n">clause</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_has_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="nf">_has_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause from 1 or n, target lids, apply OR operator between lids.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[</span><span class="n">identifiers</span><span class="p">]</span>
@@ -228,7 +228,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.has_target">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.has_target">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">has_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products having a given target as a lid or a keyword.</span>
 
 <span class="sd">        Adds a query clause selecting products having a given target as a lid</span>
@@ -252,7 +252,7 @@
         <span class="k">else</span><span class="p">:</span>
 
             <span class="nd">@cache</span>
-            <span class="k">def</span><span class="w"> </span><span class="nf">_get_lids_from_title</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">_get_lids_from_title</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
                 <span class="k">return</span> <span class="nb">list</span><span class="p">({</span><span class="n">p</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;lid&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">QueryBuilder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span><span class="o">.</span><span class="n">contexts</span><span class="p">(</span><span class="n">k</span><span class="p">)})</span>
 
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Finding products with target &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
@@ -264,7 +264,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.has_investigation">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.has_investigation">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">has_investigation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_investigation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products having a given investigation identifier.</span>
 
 <span class="sd">        Parameters</span>
@@ -284,7 +284,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.before">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.before">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products with a start date before the given datetime.</span>
 
 <span class="sd">        Parameters</span>
@@ -305,7 +305,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.after">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.after">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products with an end date after the given datetime.</span>
 
 <span class="sd">        Parameters</span>
@@ -326,7 +326,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.of_collection">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.of_collection">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">of_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">of_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products belonging to the given Parent Collection identifier.</span>
 
 <span class="sd">        Parameters</span>
@@ -346,7 +346,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.observationals">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.observationals">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">observationals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">observationals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting only &quot;Product Observational&quot; type products on the current filter.</span>
 
 <span class="sd">        Returns</span>
@@ -361,7 +361,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.collections">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.collections">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting only &quot;Product Collection&quot; type products on the current filter.</span>
 
 <span class="sd">        Parameters</span>
@@ -387,7 +387,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.bundles">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.bundles">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">bundles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">bundles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting only &quot;Bundle&quot; type products on the current filter.</span>
 
 <span class="sd">        Returns</span>
@@ -402,7 +402,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.contexts">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.contexts">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">contexts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">contexts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting only &quot;Context&quot; type products (targets, investigations, instruments, etc...).</span>
 
 <span class="sd">        Parameters</span>
@@ -421,10 +421,10 @@
 
         <span class="k">if</span> <span class="n">keyword</span><span class="p">:</span>
 
-            <span class="k">def</span><span class="w"> </span><span class="nf">_canonicalize_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">_canonicalize_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
-            <span class="k">def</span><span class="w"> </span><span class="nf">eq_cannonical_string_clause</span><span class="p">(</span><span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">eq_cannonical_string_clause</span><span class="p">(</span><span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="k">return</span> <span class="s2">&quot; or &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> eq &quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&quot;&#39;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">_canonicalize_string</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
             <span class="n">q_string</span> <span class="o">=</span> <span class="n">eq_cannonical_string_clause</span><span class="p">(</span><span class="s2">&quot;pds:Identification_Area.pds:title&quot;</span><span class="p">,</span> <span class="n">keyword</span><span class="p">)</span>
@@ -440,7 +440,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.has_instrument">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.has_instrument">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">has_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products having an instrument matching the provided identifier.</span>
 
 <span class="sd">        Parameters</span>
@@ -460,7 +460,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.has_instrument_host">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.has_instrument_host">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">has_instrument_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_instrument_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products having an instrument host matching the provided identifier.</span>
 
 <span class="sd">        Parameters</span>
@@ -480,7 +480,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.has_processing_level">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.has_processing_level">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">has_processing_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processing_level</span><span class="p">:</span> <span class="n">PROCESSING_LEVELS</span> <span class="o">=</span> <span class="s2">&quot;raw&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_processing_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processing_level</span><span class="p">:</span> <span class="n">PROCESSING_LEVELS</span> <span class="o">=</span> <span class="s2">&quot;raw&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products with a specific processing level.</span>
 
 <span class="sd">        Parameters</span>
@@ -501,7 +501,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.within_range">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.within_range">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">within_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">range_in_km</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">within_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">range_in_km</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products within the provided range value.</span>
 
 <span class="sd">        Notes</span>
@@ -524,7 +524,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.within_bbox">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.within_bbox">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">within_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">within_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting products which fall within the bounds of the provided bounding box.</span>
 
 <span class="sd">        Notes</span>
@@ -553,7 +553,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.get">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.get">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a query clause selecting the product with a LIDVID matching the provided value.</span>
 
 <span class="sd">        Parameters</span>
@@ -573,7 +573,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.fields">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.fields">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reduce the list of fields returned, for improved efficiency.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span> <span class="o">=</span> <span class="n">fields</span>
         <span class="k">return</span> <span class="bp">self</span></div>
@@ -581,7 +581,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.filter">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.filter">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clause</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clause</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Selects products that match the provided query clause.</span>
 
 <span class="sd">        Parameters</span>
@@ -600,7 +600,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.as_dataframe">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.as_dataframe">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">as_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_rows</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">as_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_rows</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the found products as a pandas DataFrame.</span>
 
 <span class="sd">        Loops on the products found and returns a pandas DataFrame with the product properties as columns</span>
@@ -646,7 +646,7 @@
 
 <div class="viewcode-block" id="QueryBuilder.reset">
 <a class="viewcode-back" href="../../../reference.html#pds.peppi.query_builder.QueryBuilder.reset">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Resets internal pagination state to default.</span>
 
 <span class="sd">        This method should be called before making any modifications to the</span>
